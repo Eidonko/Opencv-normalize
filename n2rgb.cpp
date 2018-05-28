@@ -90,12 +90,12 @@ int main(int argc, char *argv[])
 
 	
 	
-	if (oFileName.empty()) {
-		GSLOG_USR_ERROR("normalize2Rgb: option -o outputGrid must be specified.");
+	if (iFileName.empty()) {
+		GSLOG_USR_ERROR("normalize2Rgb: option -i input-image must be specified.");
 		return false;
 	}
-	if (iFileName.empty()) {
-		GSLOG_USR_ERROR("normalize2Rgb: option -i inputGrid must be specified.");
+	if (oFileName.empty()) {
+		GSLOG_USR_ERROR("normalize2Rgb: option -o output-image must be specified.");
 		return false;
 	}
 
@@ -167,7 +167,11 @@ int main(int argc, char *argv[])
 
 	imwrite(oFileName, dst );
 
+        delete r, delete g, delete b;
+        delete buffr, delete buffg, delete buffb;
+
 	waitKey(0);
+
 	return 0;
 
 }
